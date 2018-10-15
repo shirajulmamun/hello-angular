@@ -1,0 +1,26 @@
+<div *ngIf="selectedProduct">
+  <h2>
+    Selected Product
+  </h2>
+  <div>
+    <label for='productName' ></label>
+    <input type='text' [(ngModel)]="selectedProduct.name" id='productName'/>
+  </div>
+  <div>
+      <label for='type' ></label>
+      <input type='text' [(ngModel)]="selectedProduct.type" id='type'/>
+    </div>
+    <div>
+        <label for='price' ></label>
+        <input type='text' [(ngModel)]="selectedProduct.price" id='price'/>
+      </div>
+</div>
+
+<h4>
+List Of Products
+</h4>
+<div>
+  <li *ngFor="let product of products">
+    <product-item [product]="product" (selected)="showProduct($event)"></product-item>
+  </li>
+</div>
