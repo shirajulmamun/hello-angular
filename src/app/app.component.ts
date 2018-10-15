@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Hero} from './hero';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bcc-app';
+  hero: Hero;
+  
+  title = 'Tour of Heroes';
+  userName = 'Mr. ABC';
+
+  constructor()
+  {
+    this.hero = {
+      id: 1,
+      name: 'ABC'
+    };
+  }
 }
