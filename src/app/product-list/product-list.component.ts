@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from '../product';
 import {PRODUCTS} from '../mock-products';
+import { ProductService } from '../product.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
+
 })
 export class ProductListComponent implements OnInit {
 
   products: Product[];
   selectedProduct: Product;
-  constructor() { 
-        this.products = PRODUCTS;
+  newProduct: Product;
+
+  constructor(private productService: ProductService) {      
 
   }
 
@@ -22,7 +26,9 @@ export class ProductListComponent implements OnInit {
       this.selectedProduct = product;
   }
 
+
   ngOnInit() {
+    this.productService.getProducts().subscribe((productList) => this.products = productList );
   }
 
 }

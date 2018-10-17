@@ -24,3 +24,21 @@ List Of Products
     <product-item [product]="product" (selected)="showProduct($event)"></product-item>
   </li>
 </div>
+
+<form>
+
+<div>
+  <label for='productName' ></label>
+  <input type='text' (ngModel)="selectedProduct.name" id='productName'/>
+</div>
+<div>
+    <label for='type' ></label>
+    <input type='text' [ngModel)="selectedProduct.type" id='type'/>
+  </div>
+  <div>
+      <label for='price' ></label>
+      <input type='text' [(ngModel)]="selectedProduct.price" id='price'/>
+    </div>
+</div>
+
+</form>
