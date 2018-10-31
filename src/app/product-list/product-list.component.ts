@@ -26,6 +26,12 @@ export class ProductListComponent implements OnInit {
       this.selectedProduct = product;
   }
 
+  saveProduct(product: Product)
+  {
+     console.log("Add Product Event Fired"+ product.name);
+     this.productService.addProduct(product).subscribe(p => this.products.push(p)  );
+  }
+
 
   ngOnInit() {
     this.productService.getProducts().subscribe((productList) => this.products = productList );
